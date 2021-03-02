@@ -36,17 +36,6 @@ var reverseList = function(head) {
     }
     return prev;
 };
-var reverseList3 = function(head) {
-    let prev = null;
-    let really = head;
-    while(really) {
-        let next = really.next;
-        really.next = prev;
-        prev = really;
-        really = next;
-    }
-    return really;
-};
 // 递归版本
 var reverseList2 = function(head) {
     if (head == null || head.next == null) {
@@ -69,3 +58,15 @@ var reverseList2 = function(head) {
 // 输出: 5->4->3->2->1->NULL
 // 进阶:
 // 你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
+
+function revew(head) {
+    let prev = null;
+    let curr = head;
+    while(curr !== null) {
+        let next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+    }
+    return prev;
+}
