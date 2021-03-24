@@ -2,10 +2,45 @@
  * @param {number[]} prices
  * @return {number}
  */
+// 采用贪心算法，如果当天股票的价格 pi 大于等于前一天的股票价格 pi-1 则持续持有。
+// 如果低于前一天的价格，则在前一天就抛售股票。
 var maxProfit = function(prices) {
-
+    let buyin = 0;
+    let keep = 1;
+    let profit = 0;
+    let len = prices.length;
+        while(buyin + keep < len) {
+            let buyP = prices[buyin];
+            for(keep; keep < (len - buyin); keep++) {
+                if(prices[buyin + keep-1] > prices[ buyin + keep]) {
+                    if(keep > 1) {
+                        profit = profit + (prices[buyin+keep-1] - buyP);
+                    }
+                    break;
+                } else {
+                    if(buyin+keep+1 == len) {
+                        profit = profit + (prices[buyin+keep] - buyP);
+                    }
+                }
+            }
+            buyin = buyin+keep;
+            keep = 1;
+        }
+        return profit;
 };
-
+// 每一天都盯盘，只要当天利润P＞0，买卖股票，利润增加。如果当天利润P≤0，不进行操作。
+var maxProfit2 = function(prices) {
+    let totalProfite = 0;
+    for (let i = 1; i < prices.length; i++){
+        if (prices[i - 1] < prices[i]) {
+            totalProfite += (prices[i] - prices[i-1]);
+        }
+    }
+    return totalProfite;
+};
+// console.log(maxProfit2([7,1,5,3,6,4]));
+// console.log(maxProfit2([1,2,3,4,5]));
+// console.log(maxProfit2([7,6,4,3,1]));
 // 给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
 
 // 设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。
