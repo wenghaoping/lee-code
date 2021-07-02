@@ -1,15 +1,21 @@
 
-/**
+/**121.买卖股票的最佳时机
  * @param {number[]} prices
  * @return {number}
  */
-// 一次遍历
+// 贪心算法
+
 var maxProfit = function(prices) {
+    // 最低点
     let minprice = Number.MAX_VALUE;
+    // 最大利润
     let maxprofit = 0;
     for (let i = 0; i < prices.length; i++) {
+        // 判断当前是否是最低价格点
         if (prices[i] < minprice) {
             minprice = prices[i];
+            // 当前值比最低点大，重新计算是否是最大利润    
+            // 数组中最高的 - 最低的 = 利润最大的
         } else if (prices[i] - minprice > maxprofit) {
             maxprofit = prices[i] - minprice;
         }
@@ -34,7 +40,6 @@ var maxProfit2 = function(prices) {
     }
     return maxprofit;
 };
-
 console.log(maxProfit([7,1,5,3,6,4]))
 console.log(maxProfit([7,6,4,3,1]))
 // 给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。

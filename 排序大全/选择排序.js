@@ -1,5 +1,7 @@
+// 选择排序
+// 原理：从剩余未排序序列中找到最小（大）元素，
+// 放置在已排序序列的末尾位置，以此循环，直到所有元素均排序完毕
 function selectionSort(arr) {
-    console.time();
     for(let i = 0; i < arr.length; i++) {
         // 每轮比较开始之前，假设最小值
         let samllNumber = arr[i];
@@ -19,8 +21,6 @@ function selectionSort(arr) {
         // 再将最小值，放在第一位
         arr[i] = samllNumber
     }
-    console.log(arr);
-    console.timeEnd();
     return arr;
 }
 console.log(selectionSort([5, 3, 6, 2, 10]));

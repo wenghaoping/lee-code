@@ -36,22 +36,19 @@ var coinChange2 = function(coins, amount) {
     dp[0] = 0;
     for (let i = 1; i <= amount; i++) {
         for (let coin of coins) {
-            console.log(i, coin, 'i coin');
             if (i - coin >= 0) {
-                console.log(dp[i], dp[i - coin], 'dp');
                 dp[i] = Math.min(dp[i], dp[i - coin] + 1);
             }
         }
     }
-    console.log(dp);
     return dp[amount] === Infinity ? -1 : dp[amount];
 }
-console.log(coinChange2([1, 2, 5], 6));
+// console.log(coinChange2([1, 2, 5], 6));
 // console.log(coinChange([2, 5, 7], 11))
 // console.log(coinChange([2], 3))
 // console.log(coinChange([2, 5, 10, 1], 27))
-// console.log(coinChange2([411,412,413,414,415,416,417,418,419,420,421,422], 9864))
-// console.log(coinChange([186, 419, 83, 408], 6249))
+console.log(coinChange2([411,412,413,414,415,416,417,418,419,420,421,422], 9864))
+// console.log(coinChange2([186, 419, 83, 408], 6249))
 // 给定不同面额的硬币 coins 和一个总金额 amount。
 // 编写一个函数来计算可以凑成总金额所需的最少的硬币个数。
 // 如果没有任何一种硬币组合能组成总金额，返回 -1。

@@ -1,4 +1,4 @@
-/**
+/** 20，有效括号
  * @param {string} s
  * @return {boolean}
  */

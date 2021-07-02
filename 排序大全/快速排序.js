@@ -16,19 +16,3 @@ var quickSort = function(arr) {
 
 
 console.log(quickSort([5, 3, 6, 2, 10]));
-
-function quickSort2(arr) {
-    if (arr.length <= 1) { return arr; }
-    let pivot = arr[0];
-    let left = [];
-    let right = [];
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] < pivot) {
-            left.push(arr[i]);
-        } else if (arr[i] > pivot) {
-            right.push(arr[i])
-        }
-    }
-    return quickSort2(left).concat([pivot], quickSort2(right))
-}
-// console.log(quickSort2([5, 3, 6, 2, 10]));

@@ -1,4 +1,4 @@
-/**
+/**215.数组中的第K个最大元素
  * @param {number[]} nums
  * @param {number} k
  * @return {number}
@@ -21,10 +21,9 @@ var findKthLargest = function(nums, k) {
     }
 };
 var findKthLargest2 = function(nums, k) {
-    nums.sort((a,b) => b-a) //降序排序
-    console.log(nums);
-    for(var i=0;i<nums.length;i++){
-        if((k-1) == i){//i从0开始
+    nums.sort((a, b) => b - a) //降序排序
+    for(var i = 0; i < nums.length; i++){
+        if((k - 1) === i){ // i从0开始
             return nums[i]
         }
     }

@@ -67,10 +67,6 @@ var addTwoNumbers2 = function(l1, l2) {
         const n1 = l1 ? l1.val : 0;
         const n2 = l2 ? l2.val : 0;
         const sum = n1 + n2 + carry;
-         // 2+5+0 7
-         // 4+6+0 10
-         // 3+4+1 8
-         console.log('start', start)
         if (!start) {
             end = new ListNode(sum % 10);
             start = end;

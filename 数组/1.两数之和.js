@@ -14,15 +14,28 @@
  * @param {number} target
  * @return {number[]}
  */
+// var twoSum = function(nums, target) {
+//     for (let i = 0; i < nums.length; i++) {
+//         for (let s = i + 1; s < nums.length; s++) {
+//             if(+nums[i] + +nums[s] === target) {
+//                 return [i, s];
+//             }
+//         }
+//     }
+// };
+
+
+// 但是可以借助Map的功能帮忙记忆遍历过的value, 把2个循环减少到1个。
 var twoSum = function(nums, target) {
+    const map = new Map();
     for (let i = 0; i < nums.length; i++) {
-        for (let s = i + 1; s < nums.length; s++) {
-            if(+nums[i] + +nums[s] === target) {
-                return [i, s];
-            }
+        let diff = target - nums[i];
+        if (map.has(diff)) {
+            return [map.get(diff), i];
         }
+        map.set(nums[i], i);
     }
-};
+}
 console.log(twoSum([2, 3, 11, 15, 11], 22));
 
 
