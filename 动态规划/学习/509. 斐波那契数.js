@@ -1,4 +1,5 @@
 /**
+ * 509. 斐波那契数
  * @param {number} n
  * @return {number}
  */
@@ -63,7 +64,7 @@ var fib4 = function(n) {
 // console.log(fib3(30))
 // console.timeEnd(3)
 // console.time(4)
-// console.log(fib4(30))
+console.log(fib4(30))
 // console.timeEnd(4)
 console.log(fib4(0))
 // 斐波那契数，通常用 F(n) 表示，形成的序列称为 斐波那契数列 。该数列由 0 和 1 开始，后面的每一项数字都是前面两项数字的和。也就是：

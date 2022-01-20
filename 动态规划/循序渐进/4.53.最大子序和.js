@@ -3,31 +3,30 @@
  * @return {number}
  */
 // 贪心算法。
-var maxSubArray = function (nums) {
-  let pre = 0;
-  let maxAns = nums[0];
-  for (let i = 0; i < nums.length; i++) {
-    pre = Math.max(pre + nums[i], nums[i]);
-    maxAns = Math.max(maxAns, pre);
-  }
-  return maxAns;
+var maxSubArray = function(nums) {
+    let pre = 0;
+    let maxAns = nums[0];
+    for (let i = 0; i < nums.length; i++) {
+        pre = Math.max(pre + nums[i], nums[i]);
+        maxAns = Math.max(maxAns, pre);
+    };
+    return maxAns;
 };
 
 // 动态规划
-var maxSubArray2 = function (nums) {
-  let dp = new Array(nums.length);
-  dp[0] = nums[0];
-  let max = nums[0];
-  for (let i = 1; i < nums.length; i++) {
-    // 定义为数组nums 中已num[i] 结尾的最大连续子串和，
-    // 则有dp[i] = max(dp[i-1] + nums[i], num[i]);
-    dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);
-    max = Math.max(max, dp[i]);
-  }
-  return max;
-};
-// console.log(maxSubArray2([-2,1,-3,4,-1,2,1,-5,4]));
-console.log(maxSubArray2([-3, 3, 1, -3, 2, 4, 7]));
+var maxSubArray2 = function(nums) {
+    let dp = new Array(nums.length);
+    dp[0] = nums[0];
+    let max = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        // 定义为数组nums 中已num[i] 结尾的最大连续子串和， 
+        // 则有dp[i] = max(dp[i-1] + nums[i], num[i]);
+        dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);
+        max = Math.max(max, dp[i]);
+    }
+    return max;
+}
+console.log(maxSubArray2([-2,1,-3,4,-1,2,1,-5,4]));
 // console.log(maxSubArray([1]));
 // console.log(maxSubArray([0]));
 // console.log(maxSubArray([-1]));

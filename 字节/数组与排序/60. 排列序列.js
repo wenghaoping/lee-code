@@ -18,7 +18,6 @@ const getPermutation = (n, k) => {
         for (let i = 1; i <= n; i++) { // 枚举出所有选择
             if (used.has(i)) continue;   // 已经选过，跳过
             temp.push(i);                // 选择
-            console.log(temp);
             used.add(i);
             const res = helper(temp);    // 递归 往下选，获取返回值
             temp.pop();                  // 撤销选择

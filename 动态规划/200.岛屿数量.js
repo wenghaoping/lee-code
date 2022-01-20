@@ -38,13 +38,13 @@
         }
         grid[i][j] = - 1;
         if (i - 1 >= 0) {
-            travers(i-1, j)
+            travers(i - 1, j)
         } else if (j - 1 >= 0) {
-            travers(i, j-1)
+            travers(i, j - 1)
         } else if (i + 1 < height) {
-            travers(i+1, j)
+            travers(i + 1, j)
         } else if (j + 1 < width) {
-            travers(i, j+1)
+            travers(i, j + 1)
         }         
     }
     for (let i = 0; i < height; i++) {

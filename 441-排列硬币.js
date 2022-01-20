@@ -42,6 +42,8 @@ var arrangeCoins2 = function(n) {
 arrangeCoins2(8);
 // console.log(arrangeCoins(100));
 // console.log(arrangeCoins2(100));
+
+
 // 给定一个数字 n，找出可形成完整阶梯行的总行数。
 
 // n 是一个非负整数，并且在32位有符号整型的范围内。
